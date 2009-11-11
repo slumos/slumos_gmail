@@ -7,7 +7,7 @@
 // ==/UserScript==
 
 function slumos_gmail_setup(gmail) {
-  var MONOSPACE_STYLE = "@namespace url(http://www.w3.org/1999/xhtml); .ii, .dV { font-family: monospace !important; }";
+  var MONOSPACE_STYLE = "@namespace url(http://www.w3.org/1999/xhtml); .Ak, .ii, .dV { font-family: monospace !important; }";
   GM_addStyle(MONOSPACE_STYLE);
 
   // modified from http://userscripts.org/scripts/review/14256
