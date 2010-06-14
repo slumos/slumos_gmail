@@ -7,8 +7,14 @@
 // ==/UserScript==
 
 function slumos_gmail_setup(gmail) {
-  var MONOSPACE_STYLE = "@namespace url(http://www.w3.org/1999/xhtml); .Ak, .ii, .dV { font-family: monospace !important; }";
-  GM_addStyle(MONOSPACE_STYLE);
+  var font_link = window.document.createElement('link');
+  font_link.rel = 'stylesheet';
+  font_link.type = 'text/css';
+  font_link.href = 'http://fonts.googleapis.com/css?family=Droid+Sans+Mono';
+  document.getElementsByTagName('HEAD')[0].appendChild(font_link);
+
+  var plain_style = "@namespace url(http://www.w3.org/1999/xhtml); .Ak, .ii, .dV { font-family: 'Droid Sans Mono' !important; }";
+  GM_addStyle(plain_style);
 
   // modified from http://userscripts.org/scripts/review/14256
   document.addEventListener('focus',
@@ -32,8 +38,6 @@ function slumos_gmail_setup(gmail) {
       // Cursor won't move unless we wait for something (what?) to finish.
       setTimeout(function() {textarea.setSelectionRange(text_end, text_end)}, 1);
     }, true);
-
-  console.log("DONE");
 }
 
 // window.addEventListener('load', 
